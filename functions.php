@@ -21,7 +21,7 @@ function altruism_scripts() {
 	wp_enqueue_script( 'angularjs', get_template_directory_uri() . '/third-party/angular/angular' . $min . '.js', '', '1.5.0', true );
 	wp_enqueue_script( 'angularjs-route', get_template_directory_uri() . '/third-party/angular/angular-route' . $min . '.js', '', '1.5.0', true );
 	wp_enqueue_script( 'angularjs-sanitize', get_template_directory_uri() . '/third-party/angular/angular-sanitize' . $min . '.js', '', '1.5.0', true );
-	wp_enqueue_script( 'altruism-custom', get_template_directory_uri() . '/assets/app/app.js', array( 'angularjs' ), '1.0', true );
+	wp_enqueue_script( 'altruism-custom', get_template_directory_uri() . '/js/app/app.js', array( 'angularjs' ), '1.0', true );
 
 	$base_url  = esc_url_raw( home_url() );
 	wp_localize_script( 'altruism-custom', 'altruismLocalized', array(
