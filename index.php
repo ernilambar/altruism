@@ -1,5 +1,5 @@
 <?php get_header(); ?>
 
-    <div ng-view>Loading</div>
+    <div ng-view></div>
 
 <?php get_footer(); ?>
