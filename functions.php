@@ -14,11 +14,13 @@ add_action( 'after_setup_theme', 'altruism_setup' );
 
 function altruism_scripts() {
 
+    $min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
 	wp_enqueue_style( 'altruism-style', get_stylesheet_uri(), '', '1.0' );
 
-	wp_enqueue_script( 'angularjs', get_template_directory_uri() . '/assets/js/angular/angular.min.js', '', '1.5.0', true );
-	wp_enqueue_script( 'angularjs-route', get_template_directory_uri() . '/assets/js/angular/angular-route.min.js', '', '1.5.0', true );
-	wp_enqueue_script( 'angularjs-sanitize', get_template_directory_uri() . '/assets/js/angular/angular-sanitize.min.js', '', '1.5.0', true );
+	wp_enqueue_script( 'angularjs', get_template_directory_uri() . '/assets/js/angular/angular' . $min . '.js', '', '1.5.0', true );
+	wp_enqueue_script( 'angularjs-route', get_template_directory_uri() . '/assets/js/angular/angular-route' . $min . '.js', '', '1.5.0', true );
+	wp_enqueue_script( 'angularjs-sanitize', get_template_directory_uri() . '/assets/js/angular/angular-sanitize' . $min . '.js', '', '1.5.0', true );
 	wp_enqueue_script( 'altruism-custom', get_template_directory_uri() . '/assets/app/app.js', array( 'angularjs' ), '1.0', true );
 
 	$base_url  = esc_url_raw( home_url() );
