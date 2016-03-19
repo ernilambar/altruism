@@ -19,6 +19,30 @@ msgstr ""
 "Language: en_US\n"
 "X-Poedit-SearchPath-0: ../../altruism\n"
 
+#: footer.php:4
+msgid "Copyright &copy;"
+msgstr ""
+
+#: footer.php:4
+msgid "All rights reserved."
+msgstr ""
+
+#: footer.php:9
+msgid "Powered by %s and %s"
+msgstr ""
+
+#: footer.php:9
+msgid "https://wordpress.org/"
+msgstr ""
+
+#: footer.php:9
+msgid "https://angularjs.org/"
+msgstr ""
+
+#: footer.php:12
+msgid "%1$s by %2$s"
+msgstr ""
+
 #: functions.php:55
 msgid "WordPress REST API"
 msgstr ""
