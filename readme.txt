@@ -34,4 +34,5 @@ Yes, this theme requires [WordPress REST API (Version 2)](https://wordpress.org/
 
 == Credits ==
 
+* AngularJS https://angularjs.org/, (C) Google, [MIT](http://opensource.org/licenses/MIT)
 * normalize.css http://necolas.github.io/normalize.css/, (C) 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](http://opensource.org/licenses/MIT)
