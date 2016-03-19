@@ -1,0 +1,49 @@
+.site-header,
+.site-content {
+	max-width: $size__site-container;
+	width: $size__site-full;
+	background-color: $color__background-body;
+  	@include center-block;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.content-area,
+.site-branding {
+	width: $size__site-main;
+
+	@media (max-width: 767px) {
+		width: $size__site-full;
+	}
+}
+
+.site-content .widget-area {
+	width: $size__site-sidebar;
+
+	@media (max-width: 767px) {
+		width: $size__site-full;
+	}
+}
+
+.site-footer {
+	@include clearfix();
+	margin-top: 40px;
+  	@include center-block;
+	width: $size__site-full;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	text-align: center;
+	background-color: $color__background-screen;
+	border-top: 1px solid $color__background-hr;
+}
+
+.site-footer:after{
+	@include clearfix-after();
+}
+
+.site-info{
+	@include center-block;
+	max-width: $size__site-container;
+	padding-left: 15px;
+	padding-right: 15px;
+}

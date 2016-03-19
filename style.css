@@ -674,6 +674,67 @@ a:hover, a:active {
   display: block;
 }
 
+.site-header,
+.site-content {
+  max-width: 1200px;
+  width: 100%;
+  background-color: #fff;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.content-area,
+.site-branding {
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .content-area,
+  .site-branding {
+    width: 100%;
+  }
+}
+
+.site-content .widget-area {
+  width: 25%;
+}
+@media (max-width: 767px) {
+  .site-content .widget-area {
+    width: 100%;
+  }
+}
+
+.site-footer {
+  content: "";
+  display: table;
+  table-layout: fixed;
+  margin-top: 40px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  text-align: center;
+  background-color: #f1f1f1;
+  border-top: 1px solid #ccc;
+}
+
+.site-footer:after {
+  clear: both;
+}
+
+.site-info {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 /*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/
@@ -754,3 +815,7 @@ object {
 .gallery-caption {
   display: block;
 }
+
+/*--------------------------------------------------------------
+# Custom
+--------------------------------------------------------------*/
