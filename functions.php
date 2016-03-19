@@ -18,6 +18,8 @@ function altruism_scripts() {
 
     $min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
+    wp_enqueue_style( 'altruism-google-fonts', '//fonts.googleapis.com/css?family=Lato:600,400,400italic,300,100,700' );
+
 	wp_enqueue_style( 'altruism-style', get_stylesheet_uri(), '', '1.0' );
 
 	wp_enqueue_script( 'angularjs', get_template_directory_uri() . '/third-party/angular/angular' . $min . '.js', '', '1.5.0', true );

@@ -1,6 +1,24 @@
-.comment-content a {
-	word-wrap: break-word;
+.comment-list{
+	list-style:none;
+	padding-left: 0; 
 }
+
+.comment-content a {
+  word-wrap: break-word;
+}
+
 .bypostauthor {
-	display: block;
+  display: block;
+}
+
+.comment-author .avatar {
+    float: left;
+    height: 3em;
+    width: 3em;
+    margin-right: 0.8em;
+    border-radius: 30px;
+      -webkit-border-radius: 30px;
+      -moz-border-radius: 30px;
+      -o-border-radius: 30px;
+      -ms-border-radius: 30px;
 }

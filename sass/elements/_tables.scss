@@ -1,4 +1,55 @@
 table {
 	margin: 0 0 1.5em;
+	border-collapse: separate;
+	border-spacing: 0;
+	border-width: 1px 0 0 1px;
+	table-layout: fixed; /* Prevents HTML tables from becoming too wide */
 	width: 100%;
+}
+
+table,
+th,
+td {
+  border: 1px solid $color__background-hr;
+}
+
+caption,
+th,
+td {
+  font-weight: normal;
+  text-align: left;
+}
+
+th {
+  border-width: 0 1px 1px 0;
+  font-weight: 700;
+}
+
+td {
+  border-width: 0 1px 1px 0;
+}
+
+th, td {
+  padding: 0.4em;
+}
+
+del {
+  opacity: 0.8;
+}
+
+dl {
+  margin-bottom: 1.6em;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-bottom: 1.6em;
+  margin-left: 0;
+}
+
+dd a{
+  text-decoration: underline;
 }

@@ -1,3 +1,7 @@
+form {
+    position: relative;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="url"],
@@ -13,18 +17,24 @@ input[type="time"],
 input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
-textarea {
+textarea,
+.wpcf7-form-control {
 	color: $color__text-input;
-	border: 1px solid $color__border-input;
-	border-radius: 3px;
+	border: 1px solid;
+	border-color: $color__border-input;
+	@include border-radius(2);
+	@include border-box;
+	font-family: $font__main;
+	background-color: $color__background-screen;
+	outline: 0;
+	width: 100%;
+	margin-bottom: 15px;
 
 	&:focus {
 		color: $color__text-input-focus;
+		background-color: $color__background-body; 
+		-webkit-appearance: none;
 	}
-}
-
-select {
-	border: 1px solid $color__border-input;
 }
 
 input[type="text"],
@@ -42,10 +52,57 @@ input[type="time"],
 input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"] {
-	padding: 3px;
+	padding: 8px 5px 8px 15px;
+}
+
+input[type="search"] {
+    @include border-box();
+    -webkit-appearance: textfield;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    @include content-box();
+    padding: 0;
+}
+
+fieldset {
+    border: 1px solid $color__border-input;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+legend {
+    border: 0;
+    padding: 0;
+}
+
+optgroup {
+    font-weight: bold;
+}
+
+select{
+	border: 1px solid $color__border-input;
+
+	&:focus{
+    	outline: none;
+	}
 }
 
 textarea {
 	padding-left: 3px;
 	width: 100%;
+    min-height: 200px;
+    overflow: auto;
 }

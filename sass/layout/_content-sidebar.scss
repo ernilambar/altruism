@@ -1,0 +1,43 @@
+.content-area,
+.site-branding {
+	float: left;
+	margin: 0;
+	width: $size__site-main;
+}
+
+.site-main {
+	margin: 0 4.5em 0 0;
+	@include mobile-device{
+		margin-right: 0;
+	}
+}
+
+.site-content .widget-area,
+.header-widget {
+	float: right;
+	overflow: hidden;
+	width: $size__site-sidebar;
+}
+
+.site-footer {
+	@include clearfix();
+	margin-top: 40px;
+  	@include center-block;
+	width: $size__site-full;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	text-align: center;
+	background-color: $color__background-screen;
+	border-top: 1px solid $color__background-hr;
+}
+
+.site-footer:after{
+	@include clearfix-after();
+}
+
+.site-info{
+	@include center-block;
+	max-width: $size__site-container;
+	padding-left: 15px;
+	padding-right: 15px;
+}

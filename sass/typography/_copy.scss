@@ -1,5 +1,11 @@
 p {
-	margin-bottom: 1.5em;
+	margin-bottom: 1em;
+    word-wrap: break-word;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 dfn, cite, em, i {
@@ -7,7 +13,9 @@ dfn, cite, em, i {
 }
 
 blockquote {
-	margin: 0 1.5em;
+	margin: 15px 1.5em;
+	padding-bottom: 0;
+	padding-top: 0;
 }
 
 address {

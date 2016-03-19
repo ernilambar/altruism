@@ -105,6 +105,7 @@ module.exports = function( grunt ){
 			dist: {
 				options: {
 					sourcemap: 'none',
+					lineNumbers: true,
 					style: 'expanded'
 				},
 				files: {

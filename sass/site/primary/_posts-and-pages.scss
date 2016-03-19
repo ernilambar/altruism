@@ -1,3 +1,162 @@
+ article.hentry {
+	.blog &,
+	#blog-post &,
+	.search &,
+	.archive &,
+	.tag &,
+	.category &,
+	#ak-blog-post{
+		border-bottom: 3px solid $color__background-hr;
+		margin-bottom: 1.875em;
+		padding-bottom: 1.875em;
+	}
+}
+
+.entry-title{
+	.search article.hentry &,
+	.page article.hentry &,
+	.blog article.hentry,
+	.archive article.hentry,
+	.single article.hentry{
+		@include font-size(1.5);
+		text-transform: inherit;
+		font-weight: 700;
+		margin-bottom: 5px;
+	}
+}
+
+.cat-links:before {
+  content: "\f301";
+  @include font-size(1.125);
+  vertical-align: middle;
+  font-family: $font__icon;
+  margin-right: 5px;
+}
+
+.cat-links {
+  border-right: 1px solid $color__background-hr;
+  padding-right: 10px;
+}
+
+.tags-links:before {
+  content: "\f02c";
+  font-family: $font__icon;
+  @include font-size(1.125);
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.tags-links {
+  padding-left: 10px;
+}
+
+.comments-link:before {
+  content: "\f300";
+  font-family: $font__icon;
+  @include font-size(1.125);
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.comments-link{
+  display: block;
+  margin-top: 15px;
+}
+
+.comments-title,
+.comment-reply-title,
+.comments-link {
+  @include font-size(1.125);
+  line-height: $font__line-height-body;
+}
+
+.posted-on {
+	&:before {
+	  content: "\f302";
+	  font-family: $font__icon;
+	  @include font-size(1.125);
+	  vertical-align: middle;
+	  margin-right: 5px;
+	}
+}
+a{
+	.posted-on &,
+	.cat-links &,
+	.tags-links &,
+	.author &,
+	.comments-link &{
+		color: $color__link;
+		font-weight: 700;
+	}
+}
+
+.edit-link {
+  margin-left: 15px;
+	  a{
+		  	color: $color__text-screen;
+		  	font-weight: 700;
+		  	text-decoration: underline;
+	  }
+
+	  &:hover,
+	  &:focus{
+	  	color: $color__link-hover;
+	  }
+}
+
+a {
+	.nav-links .nav-previous &,
+	.nav-links .nav-next &{
+		color: $color__link;
+		border: 1px solid $color__background-hr;
+		@include border-radius(2px);
+		@include font-size(0.875);
+		display: inline-block;
+		padding: 6px 1em 7px 1.875em;
+		position: relative;
+	}
+
+	.nav-links .nav-next &{
+		padding-left: 1em;
+		padding-right: 1.875em;
+	}
+}
+
+.nav-links .nav-previous,
+.nav-links .nav-next{
+	a{
+		&:before,
+		&:after{
+			position: absolute;
+			font-family: $font__icon;
+			display: inline-block;
+		}
+		&:hover,
+		&:focus{
+			color: $color__link-hover;
+		}
+	}
+}
+
+.nav-links .nav-previous a{
+	&:before{
+		content: "\f430";
+		@include font-size(1.125);
+		vertical-align: middle;
+		left: 5px;
+	}
+}
+
+.nav-links .nav-next a{
+	&:after{
+		content: "\f429";
+		@include font-size(1.125);
+		vertical-align: middle;
+		right: 5px;
+		left: auto;
+	}
+}
+
 .sticky {
 	display: block;
 }
@@ -16,6 +175,16 @@
 	display: inline;
 }
 
+.byline {
+	&:before {
+	  content: "\f304";
+	  font-family: $font__icon;
+	  @include font-size(1.125);
+	  vertical-align: middle;
+	  margin-right: 5px;
+	}
+}
+
 .page-content,
 .entry-content,
 .entry-summary {
@@ -25,4 +194,30 @@
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+
+.post-navigation,
+.comment-navigation {
+	.site-main &{
+	    margin: 0 0 1.5em;
+	    overflow: hidden;
+  }
+}
+
+.nav-previous {
+	.post-navigation &,
+	.comment-navigation &,
+	{
+ 		float: left;
+  		width: 50%;
+  }
+}
+
+.nav-next {
+	.post-navigation &,
+	.comment-navigation &{
+		float: right;
+		text-align: right;
+		width: 50%;
+  }
 }

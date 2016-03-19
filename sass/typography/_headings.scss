@@ -1,3 +1,72 @@
 h1, h2, h3, h4, h5, h6 {
-	clear: both;
+   clear: both;
+   margin-top: 10px;
+   margin-bottom: 15px;
+}
+
+h1, h1 a,
+h2, h2 a,
+h3, h3 a,
+h4, h4 a,
+h5, h5 a,
+h6, h6 a,
+p.site-title a {
+  font-family: $font__title;
+  line-height: $font__line-height-body;
+  color: $color__text-title;
+  font-weight: 700;
+  text-decoration: none;
+
+}
+
+h1,
+p.site-title a {
+  @include font-size(2.25);
+}
+
+h2 {
+  @include font-size(1.5);
+}
+
+h3 {
+  @include font-size(1.125);
+}
+
+h4 {
+  @include font-size(1);
+}
+
+h5 {
+  @include font-size(0.875);
+}
+
+h6 {
+  @include font-size(0.750);
+}
+
+@include mobile-device{
+
+  h1 {
+    @include font-size(1.5);
+  }
+
+  h2 {
+    @include font-size(1.125);
+  }
+
+  h3 {
+    @include font-size(1);
+  }
+
+  h4 {
+    @include font-size(0.875);
+  }
+
+  h5 {
+    @include font-size(0.750);
+  }
+
+  h6 {
+    @include font-size(0.625);
+  }
 }

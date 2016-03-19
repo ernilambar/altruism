@@ -28,11 +28,86 @@ hr {
 	margin-bottom: 1.5em;
 }
 
-@import "lists";
+.logged-in.admin-bar .ab-top-menu a,
+.logged-in.admin-bar .ab-top-menu a > p{
+  	color: inherit !important;
+}
+
 
 img {
 	height: auto; /* Make sure images are scaled correctly. */
 	max-width: 100%; /* Adhere to container width. */
 }
 
+@import "lists";
+
 @import "tables";
+
+
+// custom style
+
+.head-inner{
+	@include clearfix();
+	width: $size__site-full;
+  margin-bottom: 15px;
+  @include mobile-device(){
+    text-align: center;
+  }
+}
+
+.head-inner:after{
+	@include clearfix-after();
+}
+
+.social-section {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+h1.site-title,
+p.site-title a{
+    margin-bottom: 5px;
+}
+
+p.site-description {
+    margin-top: 5px;
+}
+
+.head-img{
+  margin-bottom: 2.50em;
+  position: relative;
+  @include clearfix();
+  width: 100%;
+  &:after{
+    @include clearfix-after();
+  }
+  .head-titlecontainer{
+    display: table; 
+    height: 100%;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    @include mobile-device(){
+       position: static;
+       background-color: $color__background-dark;
+    }
+    .head-title {
+       display: table-cell;
+       height: 100%;
+       width: 100%;
+       padding: 15px;
+       vertical-align: middle;
+       @include font-size(2.25);
+       color: $color__text-button;
+       &:hover{
+          color: $color__text-button;
+       }
+       @include mobile-device(){
+          @include font-size(1);
+       }
+    }
+  }
+}
