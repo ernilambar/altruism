@@ -13,6 +13,10 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($ro
             templateUrl: altruismLocalized.partials + 'single.html',
             controller: 'Post'
         })
+        .when('/page/:ID', {
+            templateUrl: altruismLocalized.partials + 'page.html',
+            controller: 'Page'
+        })
         .when('/category/:ID/', {
             templateUrl: altruismLocalized.partials + 'category.html',
             controller: 'Category'
@@ -45,6 +49,18 @@ app.controller('Post', ['$scope','$routeParams', '$http', function($scope, $rout
           success(function(data, status, headers, config) {
             $scope.post.categories = data;
           });
+
+      });
+
+}]);
+
+// Page controller
+app.controller('Page', ['$scope','$routeParams', '$http', function($scope, $routeParams, $http) {
+
+    $http.get( altruismLocalized.root + 'wp/v2/pages/'+ $routeParams.ID).
+      success(function(data, status, headers, config) {
+
+        $scope.post = data;
 
       });
 
