@@ -1,5 +1,5 @@
 # Copyright (C) 2016 Nilambar Sharma
-# This file is distributed under the GNU General Public License v2.0 or later.
+# This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
 "Project-Id-Version: Altruism 1.0\n"
@@ -43,7 +43,7 @@ msgstr ""
 msgid "%1$s by %2$s"
 msgstr ""
 
-#: functions.php:55
+#: functions.php:57
 msgid "WordPress REST API"
 msgstr ""
 
@@ -434,7 +434,7 @@ msgid "https://github.com/ernilambar/altruism"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "WordPress Theme Powered by AngularJS"
+msgid "WordPress Theme Powered by AngularJS."
 msgstr ""
 
 #. Author of the plugin/theme
@@ -442,7 +442,7 @@ msgid "Nilambar Sharma"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "http://www.nilambar.net"
+msgid "http://nilambar.co/"
 msgstr ""
 
 #: inc/lib/class-tgm-plugin-activation.php:1108
