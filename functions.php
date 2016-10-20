@@ -39,31 +39,3 @@ function altruism_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'altruism_scripts' );
-
-/**
- * Load libraries.
- */
-require get_template_directory() . '/inc/lib/class-tgm-plugin-activation.php';
-
-/**
- * Register recommended plugins.
- *
- * @since 1.0.0
- */
-function altruism_recommended_plugins() {
-
-	$plugins = array(
-		array(
-			'name'     => __( 'WordPress REST API', 'altruism' ),
-			'slug'     => 'rest-api',
-			'required' => false,
-		),
-	);
-
-	$config = array();
-
-	tgmpa( $plugins, $config );
-
-}
-
-add_action( 'tgmpa_register', 'altruism_recommended_plugins' );
