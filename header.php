@@ -11,6 +11,6 @@
 
   <header id="masthead" class="site-header" role="banner">
     <h1>
-      <a href="<?php echo esc_url( home_url( '/#/' ) ); ?>"><?php echo get_bloginfo( 'name' ); ?></a>
+      <a href="<?php echo esc_url( home_url( '/#/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
     </h1>
   </header>

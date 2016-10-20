@@ -2,7 +2,7 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Altruism 1.0\n"
+"Project-Id-Version: Altruism 2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-19 16:08:17+00:00\n"
 "MIME-Version: 1.0\n"
@@ -24,6 +24,10 @@ msgid "Copyright &copy;"
 msgstr ""
 
 #: footer.php:4
+msgid "Y"
+msgstr ""
+
+#: footer.php:4
 msgid "All rights reserved."
 msgstr ""
 
@@ -33,10 +37,6 @@ msgstr ""
 
 #: footer.php:9
 msgid "https://wordpress.org/"
-msgstr ""
-
-#: footer.php:9
-msgid "https://angularjs.org/"
 msgstr ""
 
 #: footer.php:12
@@ -52,7 +52,7 @@ msgid "https://github.com/ernilambar/altruism"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "WordPress Theme Powered by AngularJS."
+msgid "WordPress Theme Powered by Vue.js."
 msgstr ""
 
 #. Author of the plugin/theme
@@ -60,5 +60,5 @@ msgid "Nilambar Sharma"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "http://nilambar.co/"
+msgid "http://nilambar.net/"
 msgstr ""
