@@ -20,6 +20,7 @@
 		"_": false,
 		"Backbone": false,
 		"jQuery": false,
+		"WOW": false,
 		"JSON": false,
 		"wp": false
 	}

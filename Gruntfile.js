@@ -1,10 +1,22 @@
 /* jshint node:true */
-module.exports = function( grunt ){
+module.exports = function( grunt ) {
 	'use strict';
 
 	grunt.initConfig({
 
 		pkg: grunt.file.readJSON( 'package.json' ),
+
+		// Setting folder templates.
+		dirs: {
+			js: 'js',
+			css: 'css',
+			images: 'images'
+		},
+
+		// Other options.
+		options: {
+			text_domain: 'altruism'
+		},
 
 		// Generate POT files.
 		makepot: {
@@ -12,16 +24,16 @@ module.exports = function( grunt ){
 				options: {
 					type: 'wp-theme',
 					domainPath: 'languages',
-					exclude: ['deploy/.*'],
+					exclude: ['deploy/.*','node_modules/.*','test.php'],
 					updateTimestamp: false,
 					potHeaders: {
 						'report-msgid-bugs-to': '',
+						'x-poedit-keywordslist': true,
 						'language-team': '',
 						'Language': 'en_US',
-						'X-Poedit-SearchPath-0': '../../altruism',
+						'X-Poedit-SearchPath-0': '../../<%= pkg.name %>',
 						'plural-forms': 'nplurals=2; plural=(n != 1);',
-						'Last-Translator': 'Nilambar Sharma <nilambar@outlook.com>',
-						'x-poedit-keywordslist': '__;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c;_nc:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;',
+						'Last-Translator': 'Nilambar Sharma <nilambar@outlook.com>'
 					}
 				}
 			}
@@ -30,7 +42,7 @@ module.exports = function( grunt ){
 		// Check textdomain errors.
 		checktextdomain: {
 			options: {
-				text_domain: 'altruism',
+				text_domain: '<%= options.text_domain %>',
 				keywords: [
 					'__:1,2d',
 					'_e:1,2d',
@@ -51,28 +63,31 @@ module.exports = function( grunt ){
 			files: {
 				src: [
 					'**/*.php',
-					'!node_modules/**'
+					'!node_modules/**',
+					'!deploy/**'
 				],
 				expand: true
 			}
 		},
 
+		// Update text domain.
 		addtextdomain: {
 			options: {
-		            textdomain: 'altruism'
-		        },
-		        target: {
-		        	files: {
-		        		src: [
-		        		'*.php',
-		        		'**/*.php',
-		        		'!node_modules/**',
-		        		'!tests/**',
-		        		'!docs/**',
-		        		]
-		        	}
-		        }
-	    },
+				textdomain: '<%= options.text_domain %>',
+				updateDomains: true
+			},
+			target: {
+				files: {
+					src: [
+					'*.php',
+					'**/*.php',
+					'!node_modules/**',
+					'!deploy/**',
+					'!tests/**'
+					]
+				}
+			}
+		},
 
 		// Copy files to deploy.
 		copy: {
@@ -87,7 +102,9 @@ module.exports = function( grunt ){
 					'!test.php',
 					'!package.json',
 					'!node_modules/**',
-					'!sass/**',
+					'!languages/**',
+					'!tests/**',
+					'!bin/**',
 					'!docs/**'
 				],
 				dest: 'deploy/<%= pkg.name %>',
@@ -96,104 +113,69 @@ module.exports = function( grunt ){
 			}
 		},
 
+		// Check JS.
+		jshint: {
+			options: grunt.file.readJSON('.jshintrc'),
+			all: [
+				'Gruntfile.js',
+				'js/*.js',
+				'!js/*.min.js'
+			]
+		},
+
 		// Clean the directory.
 		clean: {
 			deploy: ['deploy']
 		},
 
-		sass: {
-			dist: {
-				options: {
-					sourcemap: 'none',
-					lineNumbers: true,
-					style: 'expanded'
-				},
-				files: {
-					'style.css': 'sass/style.scss'
-				}
-			}
-		},
-		watch: {
-			css: {
-				files: ['sass/**/*.scss'],
-				tasks: ['sass'],
-				options: {
-					spawn: false
-				}
-			},
-			js: {
-				files: ['js/*.js'],
-				tasks: ['uglify'],
-				options: {
-					spawn: false
-				}
-			}
-		},
-
-		jshint: {
-			options: grunt.file.readJSON('.jshintrc'),
-			all: [
-				'js/*.js',
-				'!js/*.min.js'
-			]
-		},
+		// Uglify JS.
 		uglify: {
 			target: {
+				options: {
+					mangle: false
+				},
 				files: [{
 					expand: true,
-					cwd: 'js',
+					cwd: '<%= dirs.js %>',
 					src: ['*.js', '!*.min.js'],
-					dest: 'js',
+					dest: '<%= dirs.js %>',
 					ext: '.min.js'
 				}]
 			}
-		},
-
-		// Compress files.
-		compress: {
-			deploy: {
-				expand: true,
-				options: {
-					archive: 'deploy/<%= pkg.name %>.zip'
-				},
-				cwd: 'deploy/<%= pkg.name %>/',
-				src: ['**/*'],
-				dest: '<%= pkg.name %>/'
-			}
 		}
+
 	});
 
-	// Load NPM tasks to be used here
+	// Load NPM tasks to be used here.
 	grunt.loadNpmTasks( 'grunt-wp-i18n' );
 	grunt.loadNpmTasks( 'grunt-checktextdomain' );
-	grunt.loadNpmTasks( 'grunt-contrib-compress' );
-	grunt.loadNpmTasks( 'grunt-contrib-copy' );
-	grunt.loadNpmTasks( 'grunt-contrib-clean' );
-	grunt.loadNpmTasks( 'grunt-contrib-watch' );
-	grunt.loadNpmTasks( 'grunt-contrib-sass' );
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
+	grunt.loadNpmTasks( 'grunt-contrib-copy' );
+	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 
-	// Register tasks
-	grunt.registerTask( 'default', [
-		'watch'
+	// Register tasks.
+	grunt.registerTask( 'default', [] );
+
+	grunt.registerTask( 'build', [
+		'uglify',
+		'addtextdomain',
+		'makepot'
 	]);
 
 	grunt.registerTask( 'precommit', [
-		'jshint'
+		'jshint',
+		'checktextdomain'
 	]);
 
-	grunt.registerTask( 'build', [
-		'sass',
-		'uglify',
+	grunt.registerTask( 'textdomain', [
 		'addtextdomain',
 		'makepot'
 	]);
 
 	grunt.registerTask( 'deploy', [
 		'clean:deploy',
-		'copy:deploy',
-		'compress:deploy'
+		'copy:deploy'
 	]);
 
 };

@@ -23,5 +23,5 @@ project.properties
 # Windows junk
 Thumbs.db
 
-npm-debug.log
+# Theme specific
 test.php
