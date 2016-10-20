@@ -22,6 +22,19 @@ function altruism_scripts() {
 
 	wp_enqueue_style( 'altruism-style', get_stylesheet_uri(), '', '2.0' );
 
+	$base_url  = esc_url_raw( home_url() );
+	$base_path = rtrim( parse_url( $base_url, PHP_URL_PATH ), '/' );
+
+	wp_enqueue_script( 'vue', get_template_directory_uri() . '/third-party/vue/vue' . $min . '.js', array(), '2.0.3', true );
+	wp_enqueue_script( 'altruism-vue', get_template_directory_uri() . '/js/main.js', array(), '1.0.0', true );
+	wp_localize_script( 'altruism-vue', 'altruismObj', array(
+		'root'      => esc_url_raw( rest_url() ),
+		'base_url'  => $base_url,
+		'base_path' => $base_path ? $base_path . '/' : '/',
+		'nonce'     => wp_create_nonce( 'wp_rest' ),
+		'site_name' => get_bloginfo( 'name' ),
+	) );
+
 }
 
 add_action( 'wp_enqueue_scripts', 'altruism_scripts' );
