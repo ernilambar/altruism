@@ -33,8 +33,32 @@ function altruism_scripts() {
 		'base_path' => $base_path ? $base_path . '/' : '/',
 		'nonce'     => wp_create_nonce( 'wp_rest' ),
 		'site_name' => get_bloginfo( 'name' ),
+		'routes'    => altruism_theme_routes(),
 	) );
 
 }
 
 add_action( 'wp_enqueue_scripts', 'altruism_scripts' );
+
+function altruism_theme_routes() {
+	$routes = array();
+
+	$query = new WP_Query( array(
+		'post_type'      => 'any',
+		'post_status'    => 'publish',
+		'posts_per_page' => -1,
+	) );
+	if ( $query->have_posts() ) {
+		while ( $query->have_posts() ) {
+			$query->the_post();
+			$routes[] = array(
+				'id'   => get_the_ID(),
+				'type' => get_post_type(),
+				'slug' => basename( get_permalink() ),
+			);
+		}
+	}
+	wp_reset_postdata();
+
+	return $routes;
+}
