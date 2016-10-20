@@ -1,7 +1,7 @@
 <footer id="colophon" class="site-footer" role="contentinfo">
       <div class="copyright">
           <p>
-              <?php esc_attr_e( 'Copyright &copy;', 'altruism' ); ?>&nbsp;<?php echo date_i18n( __( 'Y', 'altruism' ) ); ?>&nbsp;<?php printf( '<a class="site-link" href="%s" rel="home">%s</a>', esc_url( home_url( '/#/' ) ), get_bloginfo( 'name' ) ); ?>&nbsp;<?php esc_html_e( 'All rights reserved.', 'altruism' ); ?>
+              <?php esc_attr_e( 'Copyright &copy;', 'altruism' ); ?>&nbsp;<?php echo date_i18n( __( 'Y', 'altruism' ) ); ?>&nbsp;<?php printf( '<a class="site-link" href="%s" rel="home">%s</a>', esc_url( home_url( '/' ) ), get_bloginfo( 'name' ) ); ?>&nbsp;<?php esc_html_e( 'All rights reserved.', 'altruism' ); ?>
           </p>
       </div><!-- .copyright -->
       <div class="site-info">
