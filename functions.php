@@ -20,6 +20,8 @@ function altruism_scripts() {
 
     wp_enqueue_style( 'altruism-google-fonts', 'https://fonts.googleapis.com/css?family=Lato:600,400,400italic,300,100,700' );
 
+    wp_enqueue_style( 'normalize', get_template_directory_uri() . '/third-party/normalize/normalize' . $min . '.css', false, '3.0.3'  );
+
 	wp_enqueue_style( 'altruism-style', get_stylesheet_uri(), '', '2.0' );
 
 	$base_url  = esc_url_raw( home_url() );
