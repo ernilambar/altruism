@@ -3,9 +3,7 @@
 Contributors: rabmalin
 Requires at least: 4.7
 Tested up to: 4.7
-Stable tag: 2.0
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Stable tag: 2.0.0
 
 WordPress Theme Powered by REST API.
 
@@ -19,12 +17,17 @@ WordPress Theme Powered by REST API.
 2. Click Upload and Choose File, then select the theme's .zip file. Click Install Now.
 3. Click Activate to use your new theme right away.
 
+== License ==
+
+Altruism WordPress Theme, Copyright (C) 2016, Nilambar Sharma
+Altruism is distributed under the terms of the GNU GPL
+
 == Changelog ==
 
-= 2.0 - Oct 20 2016 =
+= 2.0.0 - Oct 20 2016 =
 * Implement new JS router
 
-= 1.0 - Mar 20 2016 =
+= 1.0.0 - Mar 20 2016 =
 * Initial release
 
 == Credits ==
