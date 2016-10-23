@@ -23,11 +23,11 @@ function altruism_scripts() {
 
 	wp_enqueue_style( 'normalize', get_template_directory_uri() . '/third-party/normalize/normalize' . $min . '.css', false, '5.0.0' );
 
-	wp_enqueue_style( 'altruism-style', get_stylesheet_uri(), '', '1.0.0' );
+	wp_enqueue_style( 'altruism-style', get_stylesheet_uri(), '', '2.0.0' );
 
 	wp_register_script( 'director', get_template_directory_uri() . '/third-party/director/director' . $min . '.js', array(), '1.2.6' );
 
-	wp_enqueue_script( 'altruism-main', get_template_directory_uri() . '/js/main.js', array( 'jquery', 'underscore', 'director' ), '1.0.0', true );
+	wp_enqueue_script( 'altruism-main', get_template_directory_uri() . '/js/main' . $min . '.js', array( 'jquery', 'underscore', 'director' ), '1.0.0', true );
 
 	wp_localize_script( 'altruism-main', 'altruismObj', array(
 		'root'      => esc_url_raw( untrailingslashit( rest_url() ) ),
@@ -59,6 +59,7 @@ function altruism_remove_redirect_guess_404_permalink( $redirect_url ) {
 	if ( is_404() ) {
 		return false;
 	}
+
 	return $redirect_url;
 }
 
