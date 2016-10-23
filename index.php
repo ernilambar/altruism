@@ -14,19 +14,23 @@
 		<?php wp_head(); ?>
 	</head>
 	<body>
-		<header>
-			<h1>
-				<a id="branding" href="<?php echo esc_url( home_url() ); ?>"><?php bloginfo( 'name' ); ?></a>
-			</h1>
-		</header>
+		<header id="masthead" class="site-header">
+			<div class="container">
+				<h1 class="site-title">
+					<a id="branding" href="<?php echo esc_url( home_url() ); ?>"><?php bloginfo( 'name' ); ?></a>
+				</h1>
+			</div><!-- .container -->
+		</header><!-- #masthead -->
 		<div id="wrapper">
 			<div id="js-data" class="container" aria-live="assertive">
 				<!-- Our collection and single view data will be appended here -->
 			</div>
 		</div>
-		<footer>
-			<div class="copyright"><?php esc_html_e( 'Copyright &copy; All rights reserved.', 'altruism' ) ?></a></div>
-		</footer>
+		<footer id="colophon" class="site-footer">
+			<div class="container">
+				<div class="copyright"><?php esc_html_e( 'Copyright &copy; All rights reserved.', 'altruism' ) ?></a></div>
+			</div><!-- .container -->
+		</footer><!-- #colophon -->
 		<?php wp_footer(); ?>
 	</body>
 </html>

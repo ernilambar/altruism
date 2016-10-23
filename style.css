@@ -8,6 +8,7 @@ Version: 2.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
+
 html {
 	background-color: #b6bdc5;
 	font-size: 18px;
@@ -37,9 +38,11 @@ p {
 	display: block;
 }
 
-header {
+#masthead {
 	background-color: #22303f;
 	width: 100%;
+	height: auto;
+	overflow: hidden;
 }
 
 #wrapper {
@@ -54,28 +57,14 @@ header {
 	margin: 0 auto;
 }
 
-footer {
-	min-height: 60px;
-	background-color: #e24d1f;
+.site-title a {
+	color: #EEE;
+}
+#colophon {
+	background-color: #DDD;
 	width: 100%;
 }
-
-.credit {
-	padding: 40px 0 40px 60px;
-	color: #fff;
-	font-size: 1.2em;
-	font-weight: 700;
-	margin-top: 0;
-	line-height: 1.5;
-}
-
-#paginiation {
-	width: 100%;
-	clear: both;
-}
-.page-previous {
-	float: left;
-}
-.page-next {
-	float: right;
+#colophon .copyright {
+	text-align: center;
+	padding: 20px;
 }
