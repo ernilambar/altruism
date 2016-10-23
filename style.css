@@ -43,6 +43,7 @@ p {
 	width: 100%;
 	height: auto;
 	overflow: hidden;
+	text-align: center;
 }
 
 #wrapper {
@@ -69,12 +70,19 @@ p {
 	padding: 20px;
 }
 
+#main-nav {
+	text-align: center;
+}
+
 #primary-menu {
 	list-style-type: none;
 	height: auto;
 	overflow: hidden;
+	list-style-position: inside;
+	padding: 0;
 }
+
 #primary-menu li {
-	float: left;
+	display: inline-block;
 	margin-right: 15px;
 }

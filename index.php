@@ -23,11 +23,13 @@
 		</header><!-- #masthead -->
 		<?php
 		wp_nav_menu( array(
-			'theme_location' => 'primary',
-			'menu_id'        => 'primary-menu',
-			'fallback_cb'    => false,
-			'depth'          => 1,
-			'walker'         => new Altruism_Menu_Walker(),
+			'theme_location'  => 'primary',
+			'menu_id'         => 'primary-menu',
+			'container_id'    => 'main-nav',
+			'container_class' => 'container',
+			'fallback_cb'     => false,
+			'depth'           => 1,
+			'walker'          => new Altruism_Menu_Walker(),
 		) );
 		?>
 
