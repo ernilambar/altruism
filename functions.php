@@ -6,6 +6,14 @@
  */
 
 /**
+ * Altruism only works in WordPress 4.7 or later.
+ */
+if ( version_compare( $GLOBALS['wp_version'], '4.7-alpha', '<' ) ) {
+	require_once trailingslashit( get_template_directory() ) . '/inc/back-compat.php';
+	return;
+}
+
+/**
  * Sets up theme defaults and registers support for various WordPress features.
  */
 function altruism_setup() {
