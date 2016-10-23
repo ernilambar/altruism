@@ -24,6 +24,18 @@
 		router.setRoute( '/' );
 	});
 
+	// Handler for primary menu.
+	$( 'li.menu-item-object-page a', '#primary-menu' ).click( function( event ) {
+		event.preventDefault();
+		var slug = $( this ).data( 'name' );
+
+		router.setRoute( '/' + slug );
+
+		// Scroll to the top of the page.
+		$( 'html, body' ).animate( { scrollTop: 0 }, 'slow' );
+	});
+
+
 	/**
 	 * Single Post route callback.
 	 */
@@ -83,7 +95,6 @@
 				event.preventDefault();
 				var slug = $( this ).data( 'name' );
 
-				// router.setRoute( '/news/' + slug );
 				router.setRoute( '/' + slug );
 
 				// Scroll to the top of the page.

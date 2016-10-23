@@ -29,7 +29,7 @@ function altruism_add_templates() {
 		<div id="post-<%= id %>">
 			<h1><%= title.rendered %></h1>
 
-			<p class="author-info">Written by: <img src="<%= _embedded.author[0].avatar_urls[24] %>"> <%= _embedded.author[0].name %></p>
+			<p class="author-info"><img src="<%= _embedded.author[0].avatar_urls[24] %>"> <%= _embedded.author[0].name %></p>
 
 			<%= content.rendered %>
 		</div>
@@ -39,34 +39,53 @@ function altruism_add_templates() {
 
 add_action( 'wp_footer', 'altruism_add_templates' );
 
-/**
- * Customizer primary menu .
- *
- * @since 2.0.0
- *
- * @param array    $items Menu items.
- * @param stdClass $args  An object containing wp_nav_menu() arguments.
- * @return array Modified array.
- */
-function altruism_customize_primary_menu( $items, $args ) {
+class Altruism_Menu_Walker extends Walker_Nav_Menu {
 
-	if ( 'primary' === $args->theme_location ) {
-		if ( ! empty( $items ) ) {
-			$cnt = count( $items );
-			for ( $i = 1; $i <= $cnt; $i++ ) {
-				switch ( $items[ $i ]->object ) {
-					case 'page':
-						$items[ $i ]->url = home_url() . '/p/' . basename( get_permalink( $items[ $i ]->object_id ) );
-						break;
+	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 
-					default:
-						break;
-				}
-			}
+		if ( 'page' !== $item->object ) {
+			return;
 		}
+
+		$link_data = '';
+
+		switch ( $item->object ) {
+			case 'page':
+				$item->url = home_url() . '/p/' . basename( get_permalink( $item->object_id ) );
+				$link_data = 'p/' . basename( get_permalink( $item->object_id ) );
+				break;
+
+			default:
+				break;
+		}
+		$indent = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' );
+
+		// Passed classes.
+		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+		$class_names = esc_attr( implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) ) );
+
+		// Build HTML.
+		$output .= $indent . '<li id="nav-menu-item-'. $item->ID . '" class="' . ' ' . $class_names . '">';
+
+		// Link attributes.
+		$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+		$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+		$attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+		$attributes .= ! empty( $item->url )        ? ' href="'   . esc_url( $item->url        ) .'"' : '';
+		$attributes .= ! empty( $link_data )        ? ' data-name="'   . esc_attr( $link_data ) .'"' : '';
+		$attributes .= ' class="menu-link ' . ( $depth > 0 ? 'sub-menu-link' : 'main-menu-link' ) . '"';
+
+		$item_output = sprintf( '%1$s<a%2$s>%3$s%4$s%5$s</a>%6$s',
+		    $args->before,
+		    $attributes,
+		    $args->link_before,
+		    apply_filters( 'the_title', $item->title, $item->ID ),
+		    $args->link_after,
+		    $args->after
+		);
+
+		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+
 	}
 
-	return $items;
 }
-
-add_filter( 'wp_nav_menu_objects', 'altruism_customize_primary_menu', 10, 2 );

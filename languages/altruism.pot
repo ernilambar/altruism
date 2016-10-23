@@ -29,7 +29,7 @@ msgid ""
 "%s. Please upgrade and try again."
 msgstr ""
 
-#: index.php:31
+#: index.php:41
 msgid "Copyright &copy; All rights reserved."
 msgstr ""
 
