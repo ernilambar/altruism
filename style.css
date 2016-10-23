@@ -2,14 +2,80 @@
 Theme Name: Altruism
 Theme URI: https://github.com/ernilambar/altruism
 Author: Nilambar Sharma
-Author URI: http://nilambar.net/
-Description: WordPress Theme Powered by Vue.js.
-Version: 2.0
+Author URI: http://nilambar.net
+Description: Simple theme powered by REST API.
+Version: 1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: altruism
-Tags: one-column, translation-ready
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
 */
+html {
+	background-color: #b6bdc5;
+	font-size: 18px;
+	font-family: sans-serif;
+}
+
+a,
+a:visited {
+	color: #22303f;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #3c5066;
+	text-decoration: underline;
+}
+
+p {
+	font-size: 1.1em;
+	margin-top: 0;
+	margin-bottom: 24px;
+	line-height: 1.5;
+}
+
+.aligncenter {
+	margin: 20px auto;
+	display: block;
+}
+
+header {
+	background-color: #22303f;
+	width: 100%;
+}
+
+#wrapper {
+	background-color: #fff;
+	width: 100%;
+	clear: both;
+	padding: 40px 0;
+}
+
+.container {
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+footer {
+	min-height: 60px;
+	background-color: #e24d1f;
+	width: 100%;
+}
+
+.credit {
+	padding: 40px 0 40px 60px;
+	color: #fff;
+	font-size: 1.2em;
+	font-weight: 700;
+	margin-top: 0;
+	line-height: 1.5;
+}
+
+#paginiation {
+	width: 100%;
+	clear: both;
+}
+.page-previous {
+	float: left;
+}
+.page-next {
+	float: right;
+}

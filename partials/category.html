@@ -1,8 +1,0 @@
-<h2>{{category.name}}</h2>
-<div ng-repeat="post in category.posts">
-    <article>
-        <h3><a href="#post/{{post.id}}">{{post.title.rendered}}</a></h3>
-        <div class="entry-summary" ng-bind-html="post.excerpt.rendered"></div>
-    </article>
-</div>
-
