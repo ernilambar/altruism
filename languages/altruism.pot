@@ -19,13 +19,17 @@ msgstr ""
 "Language: en_US\n"
 "X-Poedit-SearchPath-0: ../../altruism\n"
 
+#: functions.php:26
+msgid "Primary Menu"
+msgstr ""
+
 #: inc/back-compat.php:33 inc/back-compat.php:45 inc/back-compat.php:60
 msgid ""
 "Altruism requires at least WordPress version 4.7. You are running version "
 "%s. Please upgrade and try again."
 msgstr ""
 
-#: index.php:28
+#: index.php:31
 msgid "Copyright &copy; All rights reserved."
 msgstr ""
 

@@ -20,6 +20,11 @@ function altruism_setup() {
 	load_theme_textdomain( 'altruism' );
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );
+
+	// Register menu locations.
+	register_nav_menus( array(
+		'primary' => esc_html__( 'Primary Menu', 'altruism' ),
+	) );
 }
 add_action( 'after_setup_theme', 'altruism_setup' );
 
