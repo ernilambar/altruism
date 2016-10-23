@@ -68,3 +68,13 @@ p {
 	text-align: center;
 	padding: 20px;
 }
+
+#primary-menu {
+	list-style-type: none;
+	height: auto;
+	overflow: hidden;
+}
+#primary-menu li {
+	float: left;
+	margin-right: 15px;
+}

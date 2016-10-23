@@ -21,6 +21,15 @@
 				</h1>
 			</div><!-- .container -->
 		</header><!-- #masthead -->
+		<?php
+		wp_nav_menu( array(
+			'theme_location' => 'primary',
+			'menu_id'        => 'primary-menu',
+			'fallback_cb'    => false,
+			'depth'          => 1,
+		) );
+		?>
+
 		<div id="wrapper">
 			<div id="js-data" class="container" aria-live="assertive">
 				<!-- Our collection and single view data will be appended here -->
