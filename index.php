@@ -27,7 +27,7 @@
 			'menu_id'        => 'primary-menu',
 			'fallback_cb'    => false,
 			'depth'          => 1,
-			'walker'         => new Altruism_Menu_Walker(),
+			// 'walker'         => new Altruism_Menu_Walker(),
 		) );
 		?>
 

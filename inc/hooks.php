@@ -84,3 +84,26 @@ class Altruism_Menu_Walker extends Walker_Nav_Menu {
 	}
 
 }
+
+add_filter( 'wp_nav_menu_objects', 'test', 10, 2 );
+
+function test( $items, $args ) {
+
+	if ( 'primary' === $args->theme_location ) {
+		if ( ! empty( $items ) ) {
+			$cnt = count( $items );
+			for ( $i = 1; $i <= $cnt; $i++ ) {
+				switch ( $items[ $i ]->object ) {
+					case 'page':
+						$items[ $i ]->url = home_url() . '/p/' . basename( get_permalink( $items[ $i ]->object_id ) );
+						break;
+
+					default:
+						break;
+				}
+			}
+		}
+	}
+
+	return $items;
+}
