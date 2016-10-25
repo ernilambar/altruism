@@ -26,11 +26,22 @@ function altruism_add_templates() {
 	</script>
 
 	<script id="post-tmpl" type="text/template">
-		<div id="post-<%= id %>">
+		<div id="post-<%= id %>" class="entry-content">
 			<h1><%= title.rendered %></h1>
 
 			<p class="author-info"><img src="<%= _embedded.author[0].avatar_urls[24] %>"> <%= _embedded.author[0].name %></p>
-
+			<% if ( typeof _embedded['wp:featuredmedia'] !== 'undefined' ) { %>
+				<%
+				var image_url = '';
+				if ( typeof _embedded['wp:featuredmedia'][0].media_details.sizes.large !== 'undefined' ) {
+					image_url = _embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url;
+				}
+				else {
+					image_url = _embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url;
+				}
+				%>
+				<img src="<%= image_url %>" alt="" class="aligncenter" />
+			<% } %>
 			<%= content.rendered %>
 		</div>
 	</script>
